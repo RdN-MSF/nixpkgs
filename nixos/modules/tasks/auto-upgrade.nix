@@ -74,13 +74,13 @@ let cfg = config.system.autoUpgrade; in
           options = {
             lower = mkOption {
               description = "Lower limit of the reboot window";
-              type = types.str;
+              type = types.strMatching "[[:digit:]]{2}:[[:digit:]]{2}";
               example = "01:00";
             };
 
             upper = mkOption {
               description = "Upper limit of the reboot window";
-              type = types.str;
+              type = types.strMatching "[[:digit:]]{2}:[[:digit:]]{2}";
               example = "05:00";
             };
           };
