@@ -113,9 +113,9 @@ let cfg = config.system.autoUpgrade; in
 
       script = let
         nixos-rebuild = "${config.system.build.nixos-rebuild}/bin/nixos-rebuild";
-        date = "/run/current-system/sw/bin/date";
-        readlink = "/run/current-system/sw/bin/readlink";
-        shutdown = "/run/current-system/sw/bin/shutdown";
+        date     = "${pkgs.coreutils}/bin/date";
+        readlink = "${pkgs.coreutils}/bin/readlink";
+        shutdown = "${pkgs.systemd}/bin/shutdown";
         upgradeFlag = optional (cfg.channel == null) "--upgrade";
       in
         if cfg.allowReboot then ''
